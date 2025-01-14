@@ -7,8 +7,13 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/website/',
   plugins: [
-    vue(),
+    vue({
+      script: {
+        babelParserPlugins: ['decorators-legacy', 'classProperties'],
+      },
+    }),
     vueJsx(),
     vueDevTools(),
   ],
