@@ -1,5 +1,5 @@
 <template>
-  <div class="dots">
+  <div class="dots" :style="wrapperStyle">
     <div class="dot">
       <svg
         :width="size"
@@ -74,6 +74,9 @@ const textPathD = computed(() => {
 })
 
 const pathId = `circle-path-${Math.random().toString(36).slice(2)}`
+const wrapperStyle = computed(() => ({
+  '--circle-size': `${props.size}px`
+}))
 </script>
 
 <style scoped>
@@ -81,16 +84,21 @@ svg {
   font-family: 'AmiamieRound', sans-serif;
   font-weight: 400;
   margin-bottom: -70px;
+  width: min(100%, var(--circle-size));
+  height: auto;
+  display: block;
 }
 .dots {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  width: 100%;
 }
 .dot {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: min(100%, var(--circle-size));
 }
 .list-clean {
   list-style-type: none;

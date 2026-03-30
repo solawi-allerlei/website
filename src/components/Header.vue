@@ -20,7 +20,6 @@ import { RouterLink } from "vue-router";
 .header-wrapper {
   position: sticky;
   top: 0;
-  left: 0;
   width: 100%;
   background: var(--color-highlight-background);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -36,6 +35,7 @@ import { RouterLink } from "vue-router";
   justify-content: space-between;
   gap: 30px;
   width: 100%;
+  max-width: 100%;
   padding: 0.5rem 1rem;
 }
 
@@ -53,6 +53,7 @@ import { RouterLink } from "vue-router";
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
 }
 
 .nav-link {
@@ -62,9 +63,35 @@ import { RouterLink } from "vue-router";
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   transition: background-color 0.2s ease;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
   background-color: #f0f0f0;
+}
+
+@media (max-width: 640px) {
+  .container_header {
+    gap: 12px;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .logo {
+    min-width: 56px;
+    max-width: 64px;
+  }
+
+  .header-text {
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
+  }
+
+  .logo-text-group {
+    gap: 8px;
+    flex: 1;
+  }
+
+  .nav-link {
+    padding: 0.25rem 0.4rem;
+  }
 }
 </style>

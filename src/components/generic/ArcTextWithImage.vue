@@ -1,5 +1,5 @@
 <template>
-  <div class="logo-wrapper">
+  <div class="logo-wrapper" :style="wrapperStyle">
     <div class="logo">
       <svg
         :width="size"
@@ -93,6 +93,10 @@ const textPathD = computed(() => {
 
 const pathId = `circle-path-${Math.random().toString(36).slice(2)}`
 const clipId = `circle-clip-${Math.random().toString(36).slice(2)}`
+
+const wrapperStyle = computed(() => ({
+  '--logo-size': `${props.size}px`
+}))
 </script>
 
 <style scoped>
@@ -101,6 +105,9 @@ svg {
   font-weight: 600;
   margin-top: 50px;
   margin-bottom: -100px;
+  width: min(100%, var(--logo-size));
+  height: auto;
+  display: block;
 }
 .logo-circle {
   display: block;
@@ -109,10 +116,12 @@ svg {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  width: 100%;
 }
 .logo {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: min(100%, var(--logo-size));
 }
 </style>

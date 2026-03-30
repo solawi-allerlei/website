@@ -6,18 +6,23 @@ import Footer from "./components/Footer.vue";
 <template>
   <div id="app">
     <Header />
-    <router-view />
+    <div class="app-content">
+      <router-view />
+    </div>
     <Footer />
   </div>
 </template>
 
 <style scoped>
-body {
-  font-family: 'Amiamie', sans-serif;
-}
 #app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.app-content {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 </style>

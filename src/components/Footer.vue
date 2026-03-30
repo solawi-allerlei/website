@@ -1,12 +1,19 @@
 <script setup lang="ts">
-import Menu, { type MenuLink } from './generic/Menu.vue';
+import Menu, { type MenuLink } from "./generic/Menu.vue";
 
 const menuLinks: MenuLink[] = [
-  { type: "internal", label: "Datenschutz", to: "/dataprotection" },
   { type: "internal", label: "Impressum", to: "/impress" },
-  { type: "external", label: "Mastodon", href: "https://mastodon.social/@allerleisolawileipzig" },
-  { type: "external", label: "Kontakt", href: "mailto:info.allerlei@posteo.de" },
-]
+  {
+    type: "external",
+    label: "Mastodon",
+    href: "https://mastodon.social/@allerleisolawileipzig",
+  },
+  {
+    type: "external",
+    label: "Kontakt",
+    href: "mailto:info.allerlei@posteo.de",
+  },
+];
 </script>
 
 <template>
@@ -17,13 +24,14 @@ const menuLinks: MenuLink[] = [
 
 <style scoped>
 .footer {
-  font-family: 'Amiamie', sans-serif;
+  font-family: "Amiamie", sans-serif;
   font-weight: 300;
   font-style: italic;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
+  box-sizing: border-box;
   background-color: white;
   color: black;
   padding: 1rem;
